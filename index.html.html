@@ -1,0 +1,2596 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)file:///C:/Users/ItzelCaballero/Downloads/dashboard_cabildeo_ia(3).html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Estratégico de Cabildeo — IA · LXVI Legislatura</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="./210426 Estrategia actores relevantes IA_files/css2" rel="stylesheet">
+<style>
+:root {
+  --bg: #fafaf7;
+  --surface: #ffffff;
+  --surface-2: #f5f4ef;
+  --text: #1a1a1a;
+  --text-muted: #6b6b6b;
+  --text-soft: #9a9a9a;
+  --border: rgba(0,0,0,0.08);
+  --border-strong: rgba(0,0,0,0.15);
+  --accent: #0C447C;
+  --tier1: #A32D2D;
+  --tier2: #EF9F27;
+  --tier3: #3B6D11;
+  --aliado-bg: #EAF3DE;
+  --aliado-fg: #27500A;
+  --aliado-border: #639922;
+  --neutral-bg: #F1EFE8;
+  --neutral-fg: #444441;
+  --neutral-border: #888780;
+  --opositor-bg: #FCEBEB;
+  --opositor-fg: #791F1F;
+  --opositor-border: #E24B4A;
+  --morena: #8B1E1E;
+  --pvem: #2E7D32;
+  --pri: #D32F2F;
+  --pan: #1976D2;
+  --mc: #F57C00;
+  --pt: #B71C1C;
+  --radius: 10px;
+  --radius-sm: 6px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+input, select, textarea, button { font-family: inherit; }
+
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px 20px 60px;
+}
+
+/* HEADER */
+.header {
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+.header-eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.header h1 {
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  margin-bottom: 6px;
+}
+.header-sub {
+  color: var(--text-muted);
+  font-size: 15px;
+  max-width: 720px;
+}
+
+/* KPIs */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.kpi {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+}
+.kpi-clickable {
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.kpi-clickable:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+  background: var(--surface-2);
+}
+.kpi-section-title {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 16px;
+}
+.kpi-section-text {
+  color: var(--tier1);
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.2;
+  letter-spacing: 0.2px;
+}
+.kpi-strategy {
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.kpi-strategy:hover {
+  border-color: var(--tier1);
+  transform: translateY(-1px);
+  background: #FCEBEB;
+}
+
+/* MODAL DE ESTRATEGIA */
+.strategy-modal {
+  max-width: 780px;
+}
+.strategy-block {
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+.strategy-block:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.strategy-block-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.strategy-letter {
+  width: 26px;
+  height: 26px;
+  background: var(--tier1);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.strategy-heading {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+.strategy-content p {
+  font-size: 13.5px;
+  color: var(--text);
+  line-height: 1.65;
+  margin-bottom: 10px;
+}
+.strategy-content ol {
+  padding-left: 20px;
+  margin-top: 8px;
+}
+.strategy-content ol li {
+  font-size: 13.5px;
+  color: var(--text);
+  line-height: 1.65;
+  margin-bottom: 8px;
+}
+.strategy-content ol li strong {
+  font-weight: 600;
+  color: var(--tier1);
+}
+.strategy-subtitle {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  color: var(--tier1);
+  margin: 16px 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+.strategy-bullets {
+  padding-left: 20px;
+  margin: 8px 0 6px;
+  list-style: disc;
+}
+.strategy-bullets li {
+  font-size: 13.5px;
+  color: var(--text);
+  line-height: 1.65;
+  margin-bottom: 8px;
+}
+.strategy-bullets li strong {
+  color: var(--text);
+  font-weight: 600;
+}
+.strategy-numbered {
+  padding-left: 20px;
+  margin: 8px 0 6px;
+  counter-reset: tmec-counter;
+  list-style: none;
+}
+.strategy-numbered li {
+  font-size: 13.5px;
+  color: var(--text);
+  line-height: 1.65;
+  margin-bottom: 8px;
+  padding-left: 24px;
+  position: relative;
+  counter-increment: tmec-counter;
+}
+.strategy-numbered li::before {
+  content: counter(tmec-counter) ".";
+  position: absolute;
+  left: 0;
+  color: var(--tier1);
+  font-weight: 600;
+}
+.pdf-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  background: var(--surface-2);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: var(--text);
+  font-size: 13.5px;
+  font-weight: 500;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  font-family: inherit;
+}
+.pdf-link:hover {
+  background: #FCEBEB;
+  border-color: var(--tier1);
+  color: var(--tier1);
+}
+.pdf-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+.calendar-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 13px;
+}
+.calendar-table th {
+  text-align: left;
+  background: var(--surface-2);
+  padding: 10px 12px;
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-strong);
+}
+.calendar-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.calendar-table tr:last-child td {
+  border-bottom: none;
+}
+.cal-tier {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: white;
+}
+.cal-tier-1 { background: var(--tier1); }
+.cal-tier-2 { background: var(--tier2); }
+.cal-tier-3 { background: var(--tier3); }
+
+/* MODAL DE CARTA SUGERIDA */
+.letter-modal {
+  max-width: 720px;
+  width: 95vw;
+}
+.letter-content {
+  padding: 8px 4px;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text);
+}
+.letter-recipient {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.letter-recipient p {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--text);
+}
+.letter-recipient p strong {
+  font-size: 14.5px;
+  color: var(--tier1);
+}
+.letter-greeting {
+  margin: 0 0 18px;
+  font-weight: 500;
+}
+.letter-paragraph {
+  margin: 0 0 14px;
+  text-align: justify;
+}
+.letter-paragraph strong {
+  color: var(--text);
+  font-weight: 600;
+}
+.letter-contact {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 13px;
+}
+.kpi-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+.kpi-value {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1;
+}
+.kpi-sub {
+  font-size: 12px;
+  color: var(--text-soft);
+  margin-top: 4px;
+}
+
+/* SECTION TITLE */
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 28px 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-title::before {
+  content: '';
+  width: 3px;
+  height: 16px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+/* CRITERIOS */
+.criterios {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 24px;
+}
+.criterios h3 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.criterios-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 6px 20px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.criterios-list li {
+  list-style: none;
+  padding-left: 14px;
+  position: relative;
+}
+.criterios-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 5px;
+  height: 5px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+/* FILTROS */
+.filtros {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-end;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.filtro-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 160px;
+}
+.filtro-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-muted);
+}
+.filtro-select, .filtro-input {
+  padding: 8px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  background: var(--surface);
+  color: var(--text);
+  font-family: inherit;
+}
+.filtro-input:focus, .filtro-select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.filtro-counter {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 500;
+  padding-bottom: 6px;
+}
+
+/* TIERS */
+.tier-section {
+  margin-bottom: 32px;
+}
+.tier-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding: 10px 14px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border-left: 4px solid var(--tier1);
+}
+.tier-2 .tier-header { border-left-color: var(--tier2); }
+.tier-3 .tier-header { border-left-color: var(--tier3); }
+
+.tier-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 12px;
+  background: var(--tier1);
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+.tier-2 .tier-badge { background: var(--tier2); }
+.tier-3 .tier-badge { background: var(--tier3); }
+
+.tier-title { font-size: 15px; font-weight: 600; }
+.tier-desc { color: var(--text-muted); font-size: 13px; margin-left: auto; }
+
+/* CARDS */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 12px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  position: relative;
+}
+.card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+}
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.card-name {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.card-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+.stance-badge {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.stance-aliado {
+  background: var(--aliado-bg);
+  color: var(--aliado-fg);
+}
+.stance-neutral {
+  background: var(--neutral-bg);
+  color: var(--neutral-fg);
+}
+.stance-opositor {
+  background: var(--opositor-bg);
+  color: var(--opositor-fg);
+}
+
+.party-chip {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 4px;
+  color: white;
+  margin-right: 6px;
+}
+.party-morena { background: var(--morena); }
+.party-pvem { background: var(--pvem); }
+.party-pri { background: var(--pri); }
+.party-pan { background: var(--pan); }
+.party-mc { background: var(--mc); }
+.party-pt { background: var(--pt); }
+
+.card-role {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+.card-signals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+}
+.signal {
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: var(--surface-2);
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.signal.active {
+  background: #E6F1FB;
+  color: #0C447C;
+}
+.signal.vinculo {
+  background: #FAEEDA;
+  color: #633806;
+  font-weight: 600;
+}
+
+.vinculo-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 5px 11px;
+  background: #FAEEDA;
+  border: 1px solid #EF9F27;
+  color: #633806;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+.vinculo-icon {
+  color: #BA7517;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.owner-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 9px;
+  color: var(--text-soft);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+/* MODAL */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-overlay.active { display: flex; }
+.modal {
+  background: var(--surface);
+  border-radius: var(--radius);
+  max-width: 640px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 24px 28px;
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.modal-name { font-size: 22px; font-weight: 600; }
+.modal-meta { color: var(--text-muted); font-size: 13px; margin-top: 4px; }
+.close-btn {
+  background: none;
+  border: 1px solid var(--border-strong);
+  font-size: 16px;
+  cursor: pointer;
+  color: var(--text-muted);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  line-height: 1;
+}
+.close-btn:hover { background: var(--surface-2); }
+
+.modal-section {
+  margin-bottom: 18px;
+}
+.modal-section h4 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.modal-section p, .modal-section ul {
+  font-size: 13.5px;
+  color: var(--text);
+  line-height: 1.65;
+}
+.modal-section ul { padding-left: 18px; }
+.modal-section li { margin-bottom: 4px; }
+
+.eval-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 8px;
+}
+.eval-item {
+  background: var(--surface-2);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+}
+.eval-item strong { display: block; color: var(--text-muted); font-size: 10px; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 3px; }
+
+/* INFO GRID - datos de contacto Tier 1 */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.info-card {
+  background: var(--surface-2);
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+}
+.info-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.info-value {
+  font-size: 13px;
+  color: var(--text);
+  font-weight: 500;
+  word-break: break-word;
+}
+.info-value.influence-alto { color: var(--tier1); font-weight: 600; }
+.info-value.influence-medioalto { color: var(--tier2); font-weight: 600; }
+.info-value.influence-medio { color: var(--tier3); font-weight: 600; }
+.info-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+.info-link:hover { text-decoration: underline; }
+.valoracion-text {
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--text);
+  text-align: justify;
+}
+
+.strategy-box {
+  background: #E6F1FB;
+  border-left: 3px solid var(--accent);
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: #0C447C;
+  line-height: 1.6;
+}
+
+/* STATS BAR */
+.stats-bar {
+  display: flex;
+  gap: 20px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+}
+.stat-item { display: flex; gap: 6px; align-items: center; }
+.stat-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+.footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  color: var(--text-soft);
+  text-align: center;
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .filtros { position: static; }
+  .header h1 { font-size: 22px; }
+  .cards-grid { grid-template-columns: 1fr; }
+  .eval-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-eyebrow">Estrategia de vinculación legislativa · LXVI Legislatura</div>
+  <h1>Inteligencia Artificial</h1>
+</div>
+
+<!-- KPIs -->
+<div class="kpi-grid">
+  <div class="kpi">
+    <div class="kpi-label">Total actores</div>
+    <div class="kpi-value">38</div>
+    <div class="kpi-sub">Diputados y senadores</div>
+  </div>
+  <div class="kpi kpi-clickable" onclick="scrollToTier(1)">
+    <div class="kpi-label">Tier 1 — Alta prioridad</div>
+    <div class="kpi-value" style="color: var(--tier1);">12</div>
+    <div class="kpi-sub">Con capacidad política de decisión</div>
+  </div>
+  <div class="kpi kpi-clickable" onclick="scrollToTier(2)">
+    <div class="kpi-label">Tier 2 — Prioridad media</div>
+    <div class="kpi-value" style="color: var(--tier2);">10</div>
+    <div class="kpi-sub">Con influencia en GP y comisiones</div>
+  </div>
+  <div class="kpi kpi-clickable" onclick="scrollToTier(3)">
+    <div class="kpi-label">Tier 3 — Menor influencia</div>
+    <div class="kpi-value" style="color: var(--tier3);">16</div>
+    <div class="kpi-sub">Capacidad técnica y mediática</div>
+  </div>
+  <div class="kpi kpi-section-title kpi-strategy" onclick="openStrategyModal()">
+    <div class="kpi-section-text">Estrategia de Vinculación</div>
+  </div>
+</div>
+
+<!-- CRITERIOS -->
+<div class="criterios">
+  <h3>Criterios de valoración estratégica</h3>
+  <ul class="criterios-list">
+    <li>Medios y exposición pública</li>
+    <li>Posicionamientos públicos sobre IA y TI</li>
+    <li>Vinculación previa</li>
+    <li>Iniciativas legislativas en la materia</li>
+    <li>Aspiraciones electorales / apoyo a candidato</li>
+    <li>Grupo político afín</li>
+    <li>Apertura a la IP</li>
+    <li>Clasificación: Aliado / Neutral / Opositor</li>
+  </ul>
+</div>
+
+<!-- FILTROS -->
+<div class="filtros">
+  <div class="filtro-group" style="flex: 1.5;">
+    <label class="filtro-label">Búsqueda</label>
+    <input class="filtro-input" type="text" id="search" placeholder="Nombre, estado, comisión…">
+  </div>
+  <div class="filtro-group">
+    <label class="filtro-label">Tier</label>
+    <select class="filtro-select" id="filter-tier">
+      <option value="">Todos</option>
+      <option value="1">Tier 1</option>
+      <option value="2">Tier 2</option>
+      <option value="3">Tier 3</option>
+    </select>
+  </div>
+  <div class="filtro-group">
+    <label class="filtro-label">Partido</label>
+    <select class="filtro-select" id="filter-party">
+      <option value="">Todos</option>
+      <option value="Morena">Morena</option>
+      <option value="PVEM">PVEM</option>
+      <option value="PRI">PRI</option>
+      <option value="PAN">PAN</option>
+      <option value="MC">MC</option>
+      <option value="PT">PT</option>
+    </select>
+  </div>
+  <div class="filtro-group">
+    <label class="filtro-label">Cámara</label>
+    <select class="filtro-select" id="filter-camara">
+      <option value="">Ambas</option>
+      <option value="Diputados">Diputados</option>
+      <option value="Senado">Senado</option>
+    </select>
+  </div>
+  <div class="filtro-group">
+    <label class="filtro-label">Postura</label>
+    <select class="filtro-select" id="filter-stance">
+      <option value="">Todas</option>
+      <option value="Aliado">Potencial aliado</option>
+      <option value="Neutral">Neutral</option>
+      <option value="Opositor">Potencial opositor</option>
+    </select>
+  </div>
+  <div class="filtro-counter" id="counter">38 de 38 actores</div>
+</div>
+
+<!-- CONTENEDOR DE TIERS -->
+<div id="tiers-container"><div class="tier-section tier-1" id="tier-1">
+      <div class="tier-header">
+        <span class="tier-badge">Tier 1</span>
+        <span class="tier-title">Tier 1 — Alta prioridad</span>
+        <span class="tier-desc">12 actores · Actores con capacidad política de decisión y proyectos legislativos en la materia</span>
+      </div>
+      <div class="cards-grid">
+        
+    <div class="card" data-id="1">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Dip. Ricardo Monreal Ávila</div>
+          <div class="card-meta">
+            <span class="party-chip party-morena">Morena</span>
+            Diputados · Representación Proporcional
+          </div>
+        </div>
+        <span class="stance-badge stance-opositor">Potencial opositor</span>
+      </div>
+      <div class="card-role">Coordinador del Grupo Parlamentario de Morena; Presidente de la Junta de Coordinación Política (Jucopo)</div>
+      <div class="vinculo-pill"><span class="vinculo-icon">⚡</span>Vinculación previa</div>
+      <div class="card-signals"><span class="signal active">Iniciativa IA 2024</span><span class="signal active">Coord. GP Morena</span><span class="signal active">JUCOPO</span><span class="signal active">Rechazo a cabilderos</span></div>
+    </div>
+  
+    <div class="card" data-id="2">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Dip. Gabriela Georgina Jiménez Godoy</div>
+          <div class="card-meta">
+            <span class="party-chip party-morena">Morena</span>
+            Diputados · Ciudad de México
+          </div>
+        </div>
+        <span class="stance-badge stance-aliado">Potencial aliado</span>
+      </div>
+      <div class="card-role">Vicecoordinadora de Morena; Integrante de la Comisión de Seguridad Ciudadana</div>
+      
+      <div class="card-signals"><span class="signal active">Iniciativa IA 2025</span><span class="signal active">Cercana a Monreal</span><span class="signal active">Apertura IP</span></div>
+    </div>
+  
+    <div class="card" data-id="3">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Sen. Ignacio Mier Velazco</div>
+          <div class="card-meta">
+            <span class="party-chip party-morena">Morena</span>
+            Senado · Representación Proporcional
+          </div>
+        </div>
+        <span class="stance-badge stance-neutral">Neutral</span>
+      </div>
+      <div class="card-role">Coordinador del Grupo Parlamentario de Morena</div>
+      
+      <div class="card-signals"><span class="signal active">Coord. GP Morena Senado</span><span class="signal active">JUCOPO Senado</span><span class="signal active">Pragmático</span></div>
+    </div>
+  
+    <div class="card" data-id="4">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Sen. Emmanuel Reyes Carmona</div>
+          <div class="card-meta">
+            <span class="party-chip party-morena">Morena</span>
+            Senado · Representación Proporcional
+          </div>
+        </div>
+        <span class="stance-badge stance-aliado">Potencial aliado</span>
+      </div>
+      <div class="card-role">Presidente de la Comisión de Economía</div>
+      <div class="vinculo-pill"><span class="vinculo-icon">⚡</span>Vinculación previa</div>
+      <div class="card-signals"><span class="signal active">Preside Comisión Economía</span><span class="signal active">Cercano a Ebrard</span><span class="signal active">Apertura IP</span></div>
+    </div>
+  
+    <div class="card" data-id="5">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Sen. Sasil de León Villard</div>
+          <div class="card-meta">
+            <span class="party-chip party-morena">Morena</span>
+            Senado · Chiapas
+          </div>
+        </div>
+        <span class="stance-badge stance-neutral">Neutral</span>
+      </div>
+      <div class="card-role">Integrante de la Junta de Coordinación Política; Integrante de la Comisión de Trabajo y Previsión Social</div>
+      
+      <div class="card-signals"><span class="signal active">JUCOPO Senado</span><span class="signal active">Base territorial Chiapas</span></div>
+    </div>
+  
+    <div class="card" data-id="6">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Sen. Javier Corral Jurado</div>
+          <div class="card-meta">
+            <span class="party-chip party-morena">Morena</span>
+            Senado · Chihuahua
+          </div>
+        </div>
+        <span class="stance-badge stance-aliado">Potencial aliado</span>
+      </div>
+      <div class="card-role">Secretario de la Comisión de Radio, Televisión y Cinematografía</div>
+      
+      <div class="card-signals"><span class="signal active">Voz crítica Morena</span><span class="signal active">Experto telecom</span><span class="signal active">Apertura IP</span></div>
+    </div>
+  
+    <div class="card" data-id="7">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Dip. Eruviel Ávila Villegas</div>
+          <div class="card-meta">
+            <span class="party-chip party-pvem">PVEM</span>
+            Diputados · Estado de México
+          </div>
+        </div>
+        <span class="stance-badge stance-aliado">Potencial aliado</span>
+      </div>
+      <div class="card-role">Presidente de la Comisión de Ciencia, Tecnología e Innovación</div>
+      <div class="vinculo-pill"><span class="vinculo-icon">⚡</span>Vinculación previa</div>
+      <div class="card-signals"><span class="signal active">Preside Comisión CTI</span><span class="signal active">Iniciativa IA</span><span class="signal active">Parlamento abierto</span><span class="signal active">Apertura IP</span></div>
+    </div>
+  
+    <div class="card" data-id="8">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Sen. Waldo Fernández González</div>
+          <div class="card-meta">
+            <span class="party-chip party-pvem">PVEM</span>
+            Senado · Nuevo León
+          </div>
+        </div>
+        <span class="stance-badge stance-aliado">Potencial aliado</span>
+      </div>
+      <div class="card-role">Presidente de la Comisión de Seguimiento a la Implementación y Revisión del T-MEC</div>
+      <div class="vinculo-pill"><span class="vinculo-icon">⚡</span>Vinculación previa</div>
+      <div class="card-signals"><span class="signal active">Preside Comisión T-MEC</span><span class="signal active">Busca gubernatura NL 2027</span></div>
+    </div>
+  
+    <div class="card" data-id="9">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Sen. Alejandro Murat Hinojosa</div>
+          <div class="card-meta">
+            <span class="party-chip party-morena">Morena</span>
+            Senado · Oaxaca
+          </div>
+        </div>
+        <span class="stance-badge stance-aliado">Potencial aliado</span>
+      </div>
+      <div class="card-role">Integrante de la Comisión de Seguimiento a la Implementación y Revisión del T-MEC</div>
+      
+      <div class="card-signals"><span class="signal active">Ex gobernador Oaxaca</span><span class="signal active">Puente expriista-Morena</span><span class="signal active">Apertura IP</span></div>
+    </div>
+  
+    <div class="card" data-id="10">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Sen. Susana Harp Iturribarría</div>
+          <div class="card-meta">
+            <span class="party-chip party-morena">Morena</span>
+            Senado · Oaxaca
+          </div>
+        </div>
+        <span class="stance-badge stance-opositor">Potencial opositor</span>
+      </div>
+      <div class="card-role">Presidenta de la Comisión de Ciencia, Tecnología e Innovación</div>
+      <div class="vinculo-pill"><span class="vinculo-icon">⚡</span>Vinculación previa</div>
+      <div class="card-signals"><span class="signal active">Preside Comisión CTI Senado</span><span class="signal active">Ala pura Morena</span><span class="signal active">Derechos de autor</span></div>
+    </div>
+  
+    <div class="card" data-id="11">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Sen. Higinio Martínez Miranda</div>
+          <div class="card-meta">
+            <span class="party-chip party-morena">Morena</span>
+            Senado · Estado de México
+          </div>
+        </div>
+        <span class="stance-badge stance-neutral">Neutral</span>
+      </div>
+      <div class="card-role">Integrante de la Comisión de Gobernación</div>
+      
+      <div class="card-signals"><span class="signal active">Vicecoord. Morena Senado</span><span class="signal active">Base Edomex</span></div>
+    </div>
+  
+    <div class="card" data-id="12">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Sen. Jorge Carlos Ramírez Marín</div>
+          <div class="card-meta">
+            <span class="party-chip party-pvem">PVEM</span>
+            Senado · Yucatán
+          </div>
+        </div>
+        <span class="stance-badge stance-aliado">Potencial aliado</span>
+      </div>
+      <div class="card-role">Vicepresidente de la Mesa Directiva del Senado</div>
+      <div class="vinculo-pill"><span class="vinculo-icon">⚡</span>Vinculación previa</div>
+      <div class="card-signals"><span class="signal active">Vicepresidente Mesa Directiva</span><span class="signal active">Apertura IP</span></div>
+    </div>
+  
+      </div>
+    </div><div class="tier-section tier-2" id="tier-2">
+      <div class="tier-header">
+        <span class="tier-badge">Tier 2</span>
+        <span class="tier-title">Tier 2 — Prioridad media</span>
+        <span class="tier-desc">10 actores · Actores con capacidad política limitada pero con influencia en el grupo parlamentario y/o comisiones legislativas</span>
+      </div>
+      <div class="cards-grid">
+        
+    <div class="card" data-id="13">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Dip. Yeidckol Polevnsky Gurwitz</div>
+          <div class="card-meta">
+            <span class="party-chip party-pt">PT</span>
+            Diputados · Estado de México
+          </div>
+        </div>
+        <span class="stance-badge stance-neutral">Neutral</span>
+      </div>
+      <div class="card-role">Diputada federal por el PT</div>
+      
+      <div class="card-signals"><span class="signal active">Ex dirigencia</span></div>
+    </div>
+  
+    <div class="card" data-id="14">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Dip. Luis Alfonso Silva Romo</div>
+          <div class="card-meta">
+            <span class="party-chip party-pvem">PVEM</span>
+            Diputados · CDMX
+          </div>
+        </div>
+        <span class="stance-badge stance-neutral">Neutral</span>
+      </div>
+      <div class="card-role">Diputado federal por el PVEM</div>
+      
+      <div class="card-signals"><span class="signal active">Perfil técnico</span></div>
+    </div>
+  
+    <div class="card" data-id="15">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Dip. Luis Orlando Quiroga Treviño</div>
+          <div class="card-meta">
+            <span class="party-chip party-pvem">PVEM</span>
+            Diputados · Coahuila
+          </div>
+        </div>
+        <span class="stance-badge stance-neutral">Neutral</span>
+      </div>
+      <div class="card-role">Diputado federal por el PVEM</div>
+      
+      <div class="card-signals"><span class="signal active">PVEM</span></div>
+    </div>
+  
+    <div class="card" data-id="16">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Dip. Eugenio Segura Vázquez</div>
+          <div class="card-meta">
+            <span class="party-chip party-morena">Morena</span>
+            Diputados · Jalisco
+          </div>
+        </div>
+        <span class="stance-badge stance-neutral">Neutral</span>
+      </div>
+      <div class="card-role">Diputado federal por Morena</div>
+      
+      <div class="card-signals"><span class="signal active">Perfil técnico</span></div>
+    </div>
+  
+    <div class="card" data-id="17">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Dip. Beatriz Mojica Morga</div>
+          <div class="card-meta">
+            <span class="party-chip party-morena">Morena</span>
+            Diputados · Guerrero
+          </div>
+        </div>
+        <span class="stance-badge stance-neutral">Neutral</span>
+      </div>
+      <div class="card-role">Diputada federal por Morena</div>
+      
+      <div class="card-signals"><span class="signal active">Derechos sociales</span></div>
+    </div>
+  
+    <div class="card" data-id="18">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Dip. Miguel Ángel Salim Alle</div>
+          <div class="card-meta">
+            <span class="party-chip party-pan">PAN</span>
+            Diputados · Guanajuato
+          </div>
+        </div>
+        <span class="stance-badge stance-neutral">Neutral</span>
+      </div>
+      <div class="card-role">Diputado federal por el PAN</div>
+      
+      <div class="card-signals"><span class="signal active">PAN</span><span class="signal active">Perfil empresarial</span></div>
+    </div>
+  
+    <div class="card" data-id="19">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Dip. Ricardo Valdés Peña</div>
+          <div class="card-meta">
+            <span class="party-chip party-morena">Morena</span>
+            Diputados · CDMX
+          </div>
+        </div>
+        <span class="stance-badge stance-neutral">Neutral</span>
+      </div>
+      <div class="card-role">Diputado federal por Morena (CDMX)</div>
+      
+      <div class="card-signals"><span class="signal active">Perfil técnico</span></div>
+    </div>
+  
+    <div class="card" data-id="20">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Sen. Lorenia Iveth Valles Sampedro</div>
+          <div class="card-meta">
+            <span class="party-chip party-morena">Morena</span>
+            Senado · Sonora
+          </div>
+        </div>
+        <span class="stance-badge stance-neutral">Neutral</span>
+      </div>
+      <div class="card-role">Senadora por Morena</div>
+      
+      <div class="card-signals"><span class="signal active">Ambiental</span></div>
+    </div>
+  
+    <div class="card" data-id="21">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Sen. Saúl Monreal Ávila</div>
+          <div class="card-meta">
+            <span class="party-chip party-morena">Morena</span>
+            Senado · Zacatecas
+          </div>
+        </div>
+        <span class="stance-badge stance-aliado">Potencial aliado</span>
+      </div>
+      <div class="card-role">Senador por Morena (hermano de Ricardo Monreal)</div>
+      
+      
+    </div>
+  
+    <div class="card" data-id="22">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Sen. Lucía Trasviña Waldenrath</div>
+          <div class="card-meta">
+            <span class="party-chip party-morena">Morena</span>
+            Senado · Baja California Sur
+          </div>
+        </div>
+        <span class="stance-badge stance-neutral">Neutral</span>
+      </div>
+      <div class="card-role">Senadora por Morena</div>
+      
+      <div class="card-signals"><span class="signal active">Perfil territorial</span></div>
+    </div>
+  
+      </div>
+    </div><div class="tier-section tier-3" id="tier-3">
+      <div class="tier-header">
+        <span class="tier-badge">Tier 3</span>
+        <span class="tier-title">Tier 3 — Menor influencia</span>
+        <span class="tier-desc">16 actores · Actores con menor influencia pero capacidad técnica y entendimiento del tema. Posicionamiento mediático</span>
+      </div>
+      <div class="cards-grid">
+        
+    <div class="card" data-id="23">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Dip. Elías Lixa Abimerhi</div>
+          <div class="card-meta">
+            <span class="party-chip party-pan">PAN</span>
+            Diputados · CDMX
+          </div>
+        </div>
+        <span class="stance-badge stance-neutral">Neutral</span>
+      </div>
+      <div class="card-role">Coordinador del Grupo Parlamentario del PAN en Diputados</div>
+      
+      <div class="card-signals"><span class="signal active">Coord. PAN</span><span class="signal active">Alta exposición</span></div>
+    </div>
+  
+    <div class="card" data-id="24">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Sen. Cecilia Guadiana Mandujano</div>
+          <div class="card-meta">
+            <span class="party-chip party-morena">Morena</span>
+            Senado · Coahuila
+          </div>
+        </div>
+        <span class="stance-badge stance-neutral">Neutral</span>
+      </div>
+      <div class="card-role">Senadora por Morena</div>
+      
+      <div class="card-signals"><span class="signal active">Perfil regional</span></div>
+    </div>
+  
+    <div class="card" data-id="25">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Sen. Ricardo Sheffield Padilla</div>
+          <div class="card-meta">
+            <span class="party-chip party-morena">Morena</span>
+            Senado · Guanajuato
+          </div>
+        </div>
+        <span class="stance-badge stance-neutral">Neutral</span>
+      </div>
+      <div class="card-role">Senador por Morena (ex PROFECO)</div>
+      
+      <div class="card-signals"><span class="signal active">Consumidor</span><span class="signal active">Ex PROFECO</span></div>
+    </div>
+  
+    <div class="card" data-id="26">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Sen. Luis Donaldo Colosio Riojas</div>
+          <div class="card-meta">
+            <span class="party-chip party-mc">MC</span>
+            Senado · Nuevo León
+          </div>
+        </div>
+        <span class="stance-badge stance-neutral">Neutral</span>
+      </div>
+      <div class="card-role">Senador por Movimiento Ciudadano</div>
+      
+      <div class="card-signals"><span class="signal active">Alta exposición</span><span class="signal active">Perfil joven</span></div>
+    </div>
+  
+    <div class="card" data-id="27">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Sen. Rolando Zapata Bello</div>
+          <div class="card-meta">
+            <span class="party-chip party-pri">PRI</span>
+            Senado · Yucatán
+          </div>
+        </div>
+        <span class="stance-badge stance-neutral">Neutral</span>
+      </div>
+      <div class="card-role">Senador por el PRI (ex gobernador de Yucatán)</div>
+      
+      <div class="card-signals"><span class="signal active">Ex gobernador</span></div>
+    </div>
+  
+    <div class="card" data-id="28">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Sen. Agustín Dorantes Lámbarri</div>
+          <div class="card-meta">
+            <span class="party-chip party-pan">PAN</span>
+            Senado · Querétaro
+          </div>
+        </div>
+        <span class="stance-badge stance-neutral">Neutral</span>
+      </div>
+      <div class="card-role">Senador por el PAN</div>
+      
+      <div class="card-signals"><span class="signal active">PAN</span><span class="signal active">Querétaro</span></div>
+    </div>
+  
+    <div class="card" data-id="29">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Sen. Juanita Guerra Mena</div>
+          <div class="card-meta">
+            <span class="party-chip party-pvem">PVEM</span>
+            Senado · Morelos
+          </div>
+        </div>
+        <span class="stance-badge stance-neutral">Neutral</span>
+      </div>
+      <div class="card-role">Senadora por el PVEM</div>
+      
+      <div class="card-signals"><span class="signal active">Seguridad</span></div>
+    </div>
+  
+    <div class="card" data-id="30">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Dip. Ivideliza Reyes Hernández</div>
+          <div class="card-meta">
+            <span class="party-chip party-pan">PAN</span>
+            Diputados · Nayarit
+          </div>
+        </div>
+        <span class="stance-badge stance-neutral">Neutral</span>
+      </div>
+      <div class="card-role">Diputada federal por el PAN</div>
+      
+      <div class="card-signals"><span class="signal active">PAN</span></div>
+    </div>
+  
+    <div class="card" data-id="31">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Dip. Sebastián Ebrard Lestrade</div>
+          <div class="card-meta">
+            <span class="party-chip party-morena">Morena</span>
+            Diputados · CDMX
+          </div>
+        </div>
+        <span class="stance-badge stance-aliado">Potencial aliado</span>
+      </div>
+      <div class="card-role">Diputado federal por Morena (hijo de Marcelo Ebrard)</div>
+      
+      <div class="card-signals"><span class="signal active">Cercanía Ebrard</span><span class="signal active">Economía</span></div>
+    </div>
+  
+    <div class="card" data-id="32">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Dip. Julio Javier Scherer Pareyón</div>
+          <div class="card-meta">
+            <span class="party-chip party-pvem">PVEM</span>
+            Diputados · CDMX
+          </div>
+        </div>
+        <span class="stance-badge stance-neutral">Neutral</span>
+      </div>
+      <div class="card-role">Diputado federal por el PVEM (hijo de Julio Scherer Ibarra)</div>
+      
+      <div class="card-signals"><span class="signal active">Perfil jurídico</span></div>
+    </div>
+  
+    <div class="card" data-id="33">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Dip. Miguel Monraz Ibarra</div>
+          <div class="card-meta">
+            <span class="party-chip party-pan">PAN</span>
+            Diputados · Jalisco
+          </div>
+        </div>
+        <span class="stance-badge stance-neutral">Neutral</span>
+      </div>
+      <div class="card-role">Diputado federal por el PAN</div>
+      
+      <div class="card-signals"><span class="signal active">PAN</span><span class="signal active">Jalisco</span></div>
+    </div>
+  
+    <div class="card" data-id="34">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Dip. Claudia Ruiz Massieu Salinas</div>
+          <div class="card-meta">
+            <span class="party-chip party-mc">MC</span>
+            Diputados · CDMX
+          </div>
+        </div>
+        <span class="stance-badge stance-neutral">Neutral</span>
+      </div>
+      <div class="card-role">Diputada federal por Movimiento Ciudadano (ex canciller)</div>
+      
+      <div class="card-signals"><span class="signal active">Ex canciller</span><span class="signal active">Relaciones internacionales</span></div>
+    </div>
+  
+    <div class="card" data-id="35">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Dip. Rubén Moreira Valdez</div>
+          <div class="card-meta">
+            <span class="party-chip party-pri">PRI</span>
+            Diputados · Coahuila
+          </div>
+        </div>
+        <span class="stance-badge stance-neutral">Neutral</span>
+      </div>
+      <div class="card-role">Coordinador del Grupo Parlamentario del PRI</div>
+      
+      <div class="card-signals"><span class="signal active">Coord. PRI</span><span class="signal active">Agenda IA</span></div>
+    </div>
+  
+    <div class="card" data-id="36">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Sen. Carolina Viggiano Austria</div>
+          <div class="card-meta">
+            <span class="party-chip party-pri">PRI</span>
+            Senado · Hidalgo
+          </div>
+        </div>
+        <span class="stance-badge stance-neutral">Neutral</span>
+      </div>
+      <div class="card-role">Senadora por el PRI</div>
+      
+      <div class="card-signals"><span class="signal active">PRI</span></div>
+    </div>
+  
+    <div class="card" data-id="37">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Dip. Federico Döring Casar</div>
+          <div class="card-meta">
+            <span class="party-chip party-pan">PAN</span>
+            Diputados · CDMX
+          </div>
+        </div>
+        <span class="stance-badge stance-aliado">Potencial aliado</span>
+      </div>
+      <div class="card-role">Diputado federal por el PAN</div>
+      
+      <div class="card-signals"><span class="signal active">PAN</span><span class="signal active">Crítico</span></div>
+    </div>
+  
+    <div class="card" data-id="38">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">Dip. Gibrán Ramírez Reyes</div>
+          <div class="card-meta">
+            <span class="party-chip party-mc">MC</span>
+            Diputados · —
+          </div>
+        </div>
+        <span class="stance-badge stance-neutral">Neutral</span>
+      </div>
+      <div class="card-role">Diputado federal por Movimiento Ciudadano</div>
+      
+      <div class="card-signals"><span class="signal active">MC</span><span class="signal active">Analista</span></div>
+    </div>
+  
+      </div>
+    </div></div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>Estrategia de Vinculación.</strong> Mapeo elaborado a partir de fuentes oficiales: Sistema de Información Legislativa, SEGOB. Cámara de Diputados. Senado de la República.
+</div>
+
+</div>
+
+<!-- MODAL DE ESTRATEGIA DE VINCULACIÓN -->
+<div class="modal-overlay" id="strategy-modal">
+  <div class="modal strategy-modal">
+    <div class="modal-header">
+      <div>
+        <div class="modal-name">Estrategia de Vinculación</div>
+        <div class="modal-meta">LXVI Legislatura</div>
+      </div>
+      <button class="close-btn" onclick="closeStrategyModal()">✕</button>
+    </div>
+
+    <div class="strategy-block">
+      <div class="strategy-block-title">
+        <div class="strategy-letter">a</div>
+        <div class="strategy-heading">Definición del mensaje</div>
+      </div>
+      <div class="strategy-content">
+        <p>Comentarios generales respecto del proyecto de iniciativa de IA, propuestas y recomendaciones.</p>
+
+        <div class="strategy-subtitle">Consideraciones</div>
+        <ul class="strategy-bullets">
+          <li>Incidencia técnica directa con actores focalizados con un alto nivel de influencia.</li>
+          <li><strong>Evitar riesgo reputacional:</strong> Big Tech tratando de frenar regulación que protege ciudadanos. No asumir un posicionamiento de rechazo total a la Ley sino de revisión puntual de sus efectos para mejorar el texto.</li>
+          <li><strong>Asumir un rol técnico y no mediático.</strong> Durante el proceso de análisis y discusión de la Ley, se recomienda que la empresa no aparezca como voz principal en medios, sino a través de Cámaras y Asociaciones, que ya están posicionadas, así como académicos y especialistas de comercio exterior que aterricen un posicionamiento técnico.</li>
+          <li>Trabajar con oposición para solicitar mayor análisis del proyecto.</li>
+          <li>Sostener una postura neutral abierta al diálogo que facilite la propuesta de redacciones puntuales o argumentos técnicos. Evitar una postura de confrontación.</li>
+          <li>Reuniones con legisladores que no forman parte de la Comisión dictaminadora, pero cuenten con un perfil de conocimiento técnico del tema y que mediáticamente puedan posicionar los riesgos del proyecto en términos de restricciones y bloqueo al desarrollo tecnológico e innovación.</li>
+        </ul>
+
+        <div class="strategy-subtitle">Afectaciones T-MEC</div>
+        <ol class="strategy-numbered">
+          <li>Afectaciones T-MEC al desarrollo tecnológico e innovación.</li>
+          <li>Cualquier obligación amplia de auditoría algorítmica o divulgación de modelos en el proyecto debe diseñarse para caer dentro de las excepciones del tratado, no fuera.</li>
+          <li>El proyecto podría imponer restricciones al flujo transfronterizo de datos y localización.</li>
+          <li>Responsabilidad de intermediarios y contenido generado por IA.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="strategy-block">
+      <div class="strategy-block-title">
+        <div class="strategy-letter">b</div>
+        <div class="strategy-heading">Reuniones con actores estratégicos</div>
+      </div>
+      <div class="strategy-content">
+        <p>Reuniones con actores Tier 1 en las últimas semanas de abril. Tier 2 durante el periodo de receso y Tier 3 en caso de que resulte necesario ampliar la discusión del tema.</p>
+        <ol>
+          <li><strong>Incidencia directa.</strong> Lograr que la visión técnica y la capacidad política del actor influyan en el análisis del proyecto durante el proceso de dictaminación.</li>
+          <li><strong>Anticipación de riesgos.</strong> Identificar de primera mano las prioridades políticas que podrían acelerar o frenar proyectos legislativos críticos.</li>
+          <li><strong>Simplificación del mensaje.</strong> Traducir la complejidad técnica, jurídica y regulatoria del proyecto.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="strategy-block">
+      <div class="strategy-block-title">
+        <div class="strategy-letter">c</div>
+        <div class="strategy-heading">Calendario sugerido</div>
+      </div>
+      <div class="strategy-content">
+        <table class="calendar-table">
+          <thead>
+            <tr>
+              <th style="width: 110px;">Tier</th>
+              <th style="width: 200px;">Periodo</th>
+              <th>Objetivo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="cal-tier cal-tier-1">Tier 1</span></td>
+              <td>Últimas semanas de abril de 2026</td>
+              <td>Contacto directo con actores decisorios y con iniciativas en curso. Incidencia temprana antes de dictaminación.</td>
+            </tr>
+            <tr>
+              <td><span class="cal-tier cal-tier-2">Tier 2</span></td>
+              <td>Periodo de receso legislativo</td>
+              <td>Consolidación de relaciones con actores con influencia sectorial. Preparación de respaldos en el Pleno.</td>
+            </tr>
+            <tr>
+              <td><span class="cal-tier cal-tier-3">Tier 3</span></td>
+              <td>En caso de ser necesario</td>
+              <td>Ampliación de la discusión cuando el debate requiera sumar actores adicionales o contener riesgos.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <div class="modal-name" id="modal-name"></div>
+        <div class="modal-meta" id="modal-meta"></div>
+      </div>
+      <button class="close-btn" onclick="closeModal()">✕</button>
+    </div>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<!-- MODAL DE CARTA SUGERIDA -->
+<div class="modal-overlay" id="pdf-modal">
+  <div class="modal letter-modal">
+    <div class="modal-header">
+      <div>
+        <div class="modal-name">Carta sugerida</div>
+        <div class="modal-meta">Plantilla institucional</div>
+      </div>
+      <button class="close-btn" onclick="closePdfModal()">✕</button>
+    </div>
+
+    <div class="letter-content">
+      <div class="letter-recipient">
+        <p><strong>Dip. Ricardo Monreal Ávila</strong></p>
+        <p>Presidente de la Junta de Coordinación Política</p>
+        <p>LXVI Legislatura</p>
+        <p>Cámara de Diputados</p>
+      </div>
+
+      <p class="letter-greeting">Estimado Diputado Monreal,</p>
+
+      <p class="letter-paragraph">A nombre de nuestra empresa le extendemos un cordial saludo y, al mismo tiempo, nos permitimos compartirle que reafirmamos nuestro compromiso por contribuir a la inversión e innovación tecnológica del país.</p>
+
+      <p class="letter-paragraph">Nos gustaría compartir con usted los proyectos de expansión y crecimiento que actualmente se están llevando a cabo en el país; particularmente la inversión anunciada de <strong>5 mil millones de dólares (mmdd) para la creación de una región digital en Querétaro</strong> que generará 7 mil empleos por año, la capacitación de 400 mil personas; y una aportación al Producto Interno Bruto (PIB) de 10 mmdd en los próximos 15 años.</p>
+
+      <p class="letter-paragraph">En ese contexto, nos gustaría explorar con usted diversas áreas de oportunidad y colaboración para el largo plazo en favor de la economía y la innovación en México.</p>
+
+      <p class="letter-paragraph">Particularmente, quisiéramos compartir nuestra visión sobre la regulación en materia de inteligencia artificial que el país requiere para detonar un mayor número de proyectos y posicionarse como un nodo digital y un líder en América Latina, así como para modernizar las industrias del país con el talento de los trabajadores mexicanos.</p>
+
+      <p class="letter-paragraph">Para ello, solicitamos amablemente la posibilidad de llevar a cabo una reunión, conforme su agenda lo permita, a efecto de detallar los puntos antes mencionados. En esta reunión participará nuestro equipo de política pública integrado por <strong>Aurea Patiño Garza</strong> y <strong>Ana Paola Barbosa</strong>.</p>
+
+      <p class="letter-paragraph">Agradeciendo de antemano su atención a la presente y esperando contar con la oportunidad de llevar a cabo este encuentro con usted, quedamos atentas a su amable respuesta.</p>
+
+      <p class="letter-contact"><strong>Contacto:</strong></p>
+    </div>
+  </div>
+</div>
+
+<script>
+// ==================== DATA ====================
+const actores = [
+  // ============ TIER 1 — TOP 12 ACTORES (Mapeo IA) ============
+  {
+    id: 1, tier: 1,
+    nombre: 'Dip. Ricardo Monreal Ávila',
+    camara: 'Diputados', partido: 'Morena', estado: 'Representación Proporcional',
+    rol: 'Coordinador del Grupo Parlamentario de Morena; Presidente de la Junta de Coordinación Política (Jucopo)',
+    stance: 'Opositor',
+    influencia: 'Alto',
+    contacto: 'ricardo.monreal@diputados.gob.mx',
+    sil: 'http://sil.gobernacion.gob.mx/Librerias/pp_PerfilLegislador.php?SID=&Referencia=9228822',
+    suplente: 'Rodolfo González Valderrama',
+    signales: ['Iniciativa IA 2024', 'Coord. GP Morena', 'JUCOPO', 'Rechazo a cabilderos'],
+    iniciativas: true,
+    vinculoPrevio: true,
+    valoracion: 'Desde 2018, el Diputado Ricardo Monreal ha mostrado interés por diversos temas de impacto al ecosistema digital y financiero y se ha posicionado como uno de los actores de mayor influencia en el Congreso. De 2018 a 2024 fungió como presidente de la Junta de Coordinación Política y coordinador de Morena en el Senado, operando la aprobación de las reformas estructurales del entonces presidente, Andrés Manuel López Obrador. Actualmente, como coordinador de Morena en la Cámara de Diputados mantiene un importante liderazgo, así como un grupo de legisladores que forman parte de su círculo político. A título personal ha promovido proyectos en materia de: regulación de redes sociales (considerando que las plataformas extranjeras deben estar sujetas a la legislación nacional), regulación de inteligencia artificial (en 2024), protección al consumidor frente a publicidad no deseada, remuneración compensatoria, cancelación de tarjetas de crédito, cancelación de suscripciones, entre otras. Particularmente destaca su iniciativa de Ley Federal que regula la Inteligencia Artificial presentada en abril de 2024 (desechada por reglamento). En esa se propone clasificar a los sistemas de IA conforme a si presentan un riesgo inaceptable, alto riesgo o bajo riesgo; prohíbe que la IA se utilice para manipular comportamiento humano, use técnicas subliminales o genere daños psicológicos o físicos; establece la obligación de informar cuando contenido sea generado por IA; y proponía que el extinto Instituto Federal de Telecomunicaciones fungiera como autoridad en IA. De manera reciente, en febrero de 2025 presentó una iniciativa para facultar al Congreso a legislar en materia de IA. En 2023, Ricardo Monreal participó en la encuesta de Morena para la definición de la candidatura presidencial, quedando en último lugar; al momento no ha expresado intenciones de contender por algún cargo en 2027 o 2030, pero su hermano Saúl Monreal ha expresado públicamente que buscará la gubernatura de Zacatecas. El Diputado Monreal mantiene el apoyo y lealtad de diversos actores, incluso se puede identificar una corriente "monrealista" dentro de Morena. Algunos actores con quien mantiene afinidad política son: los gobernadores Alejandro Armenta y Eduardo Ramírez; Senador Ignacio Mier Velasco; Diputados Pedro Haces, Víctor Hugo Lobo, Gabriela Jiménez Godoy, entre otros. En el marco de las reformas a la Ley del IVA en materia de plataformas digitales en 2019, el cliente sostuvo una reunión con el entonces Senador Monreal. Si bien puede tener cierta apertura con el sector privado, también ha expresado de manera pública el rechazo a los "cabilderos" (está preparando una iniciativa para regular esta actividad).'
+  },
+  {
+    id: 2, tier: 1,
+    nombre: 'Dip. Gabriela Georgina Jiménez Godoy',
+    camara: 'Diputados', partido: 'Morena', estado: 'Ciudad de México',
+    rol: 'Vicecoordinadora de Morena; Integrante de la Comisión de Seguridad Ciudadana',
+    stance: 'Aliado',
+    influencia: 'Alto',
+    contacto: 'gabriela.jimenez@diputados.gob.mx',
+    sil: 'https://sil.gobernacion.gob.mx/Librerias/pp_PerfilLegislador.php?Referencia=9228174',
+    suplente: 'Cristina Aline Galicia Chavarría',
+    signales: ['Iniciativa IA 2025', 'Cercana a Monreal', 'Apertura IP'],
+    iniciativas: true,
+    vinculoPrevio: false,
+    valoracion: 'La Diputada Jiménez Godoy tiene un alto poder de negociación dentro del grupo parlamentario, y se le considera parte del grupo de legisladores cercanos al coordinador Ricardo Monreal. En materia de IA, en abril de 2025 suscribió una iniciativa de Ley Federal para el Desarrollo Ético, Soberano e Inclusivo de la Inteligencia Artificial, la cual propone aspectos de transparencia algorítmica, clasificación de semáforo de riesgo para sistemas de IA y la creación de un Consejo Nacional de Inteligencia Artificial. Esta iniciativa fue presentada en diversos foros públicos, sin embargo, no ha tenido avance en su proceso legislativo. Cuenta con respaldo territorial en Jalisco y en la Alcaldía Azcapotzalco, en donde se le ha identificado como una posible candidata en 2027. No pertenece a algún grupo político dentro de Morena de perfil más "duro" o radical, más bien, ha tenido un acercamiento pragmático al partido a través de la asociación "Que siga la democracia", la cual posicionó al entonces presidente López Obrador en el contexto de la revocación de mandato. En cuanto a su relación con el sector privado, ha participado en sesiones de Coparmex para presentar proyectos del Ejecutivo (Ley de Inversiones).'
+  },
+  {
+    id: 3, tier: 1,
+    nombre: 'Sen. Ignacio Mier Velazco',
+    camara: 'Senado', partido: 'Morena', estado: 'Representación Proporcional',
+    rol: 'Coordinador del Grupo Parlamentario de Morena',
+    stance: 'Neutral',
+    influencia: 'Alto',
+    contacto: 'ignacio.mier@senado.gob.mx',
+    sil: 'https://sil.gobernacion.gob.mx/Librerias/pp_PerfilLegislador.php?Referencia=9229070',
+    suplente: 'Carlos Alberto Evangelista Aniceto',
+    signales: ['Coord. GP Morena Senado', 'JUCOPO Senado', 'Pragmático'],
+    iniciativas: false,
+    vinculoPrevio: false,
+    valoracion: 'Actualmente es uno de los perfiles de mayor influencia en el Senado. Al ser presidente de la Junta de Coordinación Política (Jucopo) mantiene un diálogo directo al Ejecutivo Federal y con el Diputado Ricardo Monreal. En la anterior legislatura, Mier fungió como coordinador en la Cámara de Diputados, por lo que ha acumulado experiencia como operador político para la aprobación de los proyectos más relevantes del Ejecutivo Federal. Ha mostrado mayor voluntad de diálogo con la oposición y el sector privado a partir de su llegada a la Jucopo. Su hijo, Ignacio Mier, actualmente es Diputado Federal. No tiene una postura explícita sobre temas de la agenda digital. En abril de 2025 suscribió un punto de acuerdo que exhortaba a investigar sobre un presunto monopolio en el mercado de publicidad digital, sin embargo, este no fue aprobado. En el ámbito electoral, si bien en 2024 buscó la candidatura de Morena a la gubernatura de Puebla (perdiendo ante Alejandro Armenta), el Senador Mier Velazco no ha expresado públicamente sus intenciones de contender por otro cargo en 2027, aunque no se descarta que en 2030 pueda buscar nuevamente la gubernatura de su Estado. No pertenece a algún grupo político dentro de Morena de perfil más "duro" o radical, más bien, ha tenido un acercamiento pragmático al partido desde 2017 tras dejar su militancia priista. A nivel estatal mantiene liderazgo regional. Finalmente, no suele tener acercamientos públicos con el sector privado, pero en su nuevo encargo como coordinador de Morena, ha mantenido una postura más flexible al diálogo con otros actores.'
+  },
+  {
+    id: 4, tier: 1,
+    nombre: 'Sen. Emmanuel Reyes Carmona',
+    camara: 'Senado', partido: 'Morena', estado: 'Representación Proporcional',
+    rol: 'Presidente de la Comisión de Economía',
+    stance: 'Aliado',
+    influencia: 'Alto',
+    contacto: 'emmanuel.reyes@senado.gob.mx',
+    sil: 'https://sil.gobernacion.gob.mx/Librerias/pp_PerfilLegislador.php?SID=&Referencia=9229275',
+    suplente: 'Es suplente de Marcelo Ebrard',
+    signales: ['Preside Comisión Economía', 'Cercano a Ebrard', 'Vínculo previo', 'Apertura IP'],
+    iniciativas: false,
+    vinculoPrevio: true,
+    valoracion: 'Como presidente de la Comisión de Economía mantiene una agenda dinámica y abierta con el sector empresarial. Asimismo, mantiene una comunicación y presencia muy constante con la Secretaría de Economía, ya que es un actor cercano y leal al Secretario Marcelo Ebrard (es su senador suplente). Recientemente en círculos empresariales descartó que en el corto se discutan reformas relacionadas con la regulación de la inteligencia artificial, al considerar que se requiere un análisis más amplio, además de seguir de cerca los procesos regulatorios en otros países, particularmente el T-MEC. Aunque no cuenta con proyectos propios en el tema, desde la Comisión de Economía se han auspiciado eventos sobre IA, entre ellos, en marzo de 2026 se llevó a cabo la presentación del libro "Inteligencia Artificial: hacia una nueva era en la historia de la humanidad", una selección de textos coordinados por el doctor Arturo Oropeza García y Jorge Fernando Negrete. En dicho evento, manifestó que la IA es un "nuevo factor de producción que definirá quiénes liderarán la economía global y quiénes quedarán rezagados en la periferia del desarrollo"; y que "la misión del Congreso mexicano es construir un marco regulatorio en el que el Estado no sea un obstáculo, sino un facilitador que garantice certeza jurídica para las inversiones, que proteja la dignidad humana y permita que México no sólo sea un país ensamblador, sino desarrollador de su política industrial". El Senador mantiene buena relación con el cliente; participó en la inauguración de la Feria de PyMES en noviembre de 2024. Aunque no ha expresado públicamente intenciones de contender por algún cargo en próximas elecciones, se le considera como posible candidato a la gubernatura de Guanajuato.'
+  },
+  {
+    id: 5, tier: 1,
+    nombre: 'Sen. Sasil de León Villard',
+    camara: 'Senado', partido: 'Morena', estado: 'Chiapas',
+    rol: 'Integrante de la Junta de Coordinación Política; Integrante de la Comisión de Trabajo y Previsión Social',
+    stance: 'Neutral',
+    influencia: 'Medio-alto',
+    contacto: 'sasil.deleon@senado.gob.mx',
+    sil: 'https://sil.gobernacion.gob.mx/Librerias/pp_PerfilLegislador.php?Referencia=9228890#Organos',
+    suplente: 'Itzel Francisca De León Villard',
+    signales: ['JUCOPO Senado', 'Base territorial Chiapas'],
+    iniciativas: false,
+    vinculoPrevio: false,
+    valoracion: 'Es un perfil influyente dentro de Morena y con una importante base territorial en Chiapas. Inició su carrera en el PVEM y ocupó diversos cargos en la administración pública local. Cuenta con experiencia territorial y de operación política, destacando que fue delegada federal del Programa Prospera en la entidad. En 2018 se postula al Senado por la coalición Morena-PT-PES y desde entonces es aliada del bloque oficialista. Anteriormente fue coordinadora del Partido Encuentro Social, pero desde 2023 ingresa formalmente a Morena. Actualmente es integrante de la Junta de Coordinación Política del Senado, desde donde puede tener incidencia en la agenda diaria de la Cámara. En 2024 buscó la candidatura de la gubernatura de Chiapas, sin embargo, perdió ante Eduardo Ramírez. No se descarta que en 2030 busque nuevamente la gubernatura. No tiene una postura explícita sobre temas de la agenda digital, su agenda se enfoca en igualdad de género. Mantiene apertura con el sector privado, ya que ha sostenido reuniones con cámaras empresariales locales (particularmente en Chiapas y Michoacán) para dialogar sobre los polos de desarrollo del bienestar y el Plan México. Sin vinculación previa.'
+  },
+  {
+    id: 6, tier: 1,
+    nombre: 'Sen. Javier Corral Jurado',
+    camara: 'Senado', partido: 'Morena', estado: 'Chihuahua',
+    rol: 'Secretario de la Comisión de Radio, Televisión y Cinematografía',
+    stance: 'Aliado',
+    influencia: 'Alto',
+    contacto: 'javier.corralj@senado.gob.mx',
+    sil: 'https://sil.gobernacion.gob.mx/Librerias/pp_PerfilLegislador.php?SID=&Referencia=9229280',
+    suplente: 'Myrna Brighite Granados de la Rosa',
+    signales: ['Voz crítica Morena', 'Experto telecom', 'Apertura IP'],
+    iniciativas: false,
+    vinculoPrevio: false,
+    valoracion: 'Se ha posicionado como un actor crítico dentro de Morena, dispuesto a disentir del grupo mayoritario. Al mismo tiempo, sus posturas son escuchadas por el bloque oficialista, y cuenta con legitimidad ante la presidenta, ya que este formó parte del grupo de expertos y colaboradores que realizaron los "Diálogos por la Transformación" durante su campaña presidencial. Durante la discusión de la Ley de Telecomunicaciones fue un actor clave para que se lograra abrir la discusión y realizar modificaciones sustanciales al proyecto original, entre ellos, la creación de una Comisión Reguladora de Telecomunicaciones. Durante los conversatorios, manifestó comprender la necesidad de que las plataformas digitales quedaran fuera del ámbito de regulación de esta ley, y que ello debería plasmarse en otros ordenamientos específicos de la materia. También contó con el aval del Ejecutivo para impulsar con éxito una reforma integral en materia de prevención de lavado de dinero, de la cual fue promovente. Es un actor receptivo a las diversas posturas presentadas por la iniciativa privada y la sociedad civil. Históricamente ha tenido gran interés en los temas de telecomunicaciones (particularmente en contra de la llamada "Ley Televisa" y de los monopolios en el sector de la televisión tradicional). Como gobernador de Chihuahua mantuvo una estrecha colaboración con el sector privado, y actualmente como senador también se muestra abierto a escuchar las opiniones de actores empresariales.'
+  },
+  {
+    id: 7, tier: 1,
+    nombre: 'Dip. Eruviel Ávila Villegas',
+    camara: 'Diputados', partido: 'PVEM', estado: 'Estado de México',
+    rol: 'Presidente de la Comisión de Ciencia, Tecnología e Innovación',
+    stance: 'Aliado',
+    influencia: 'Alto',
+    contacto: 'eruviel.avila@diputados.gob.mx',
+    sil: 'https://sil.gobernacion.gob.mx/Librerias/pp_PerfilLegislador.php?SID=&Referencia=9229368',
+    suplente: 'Tanya Rellstab Carreto',
+    signales: ['Preside Comisión CTI', 'Iniciativa IA', 'Parlamento abierto', 'Apertura IP'],
+    iniciativas: true,
+    vinculoPrevio: true,
+    valoracion: 'Es un perfil con legitimidad dentro y fuera del PVEM, ya que ha logrado mantener buena relación tanto con el bloque opositor como con el oficialismo. Como ex gobernador del Estado de México, mantiene un importante liderazgo en la entidad, así como con perfiles priistas. Desde la Comisión que preside se han promovido diversos proyectos en materia de IA, incluyendo una reforma a la Ley General en materia de Humanidades, Ciencias, Tecnologías e Innovación para establecer la creación de una Estrategia Nacional de IA, la cual está pendiente de aprobación en el Pleno. Ha suscrito una iniciativa para facultar al Congreso a legislar en materia de IA y establecer salvaguardas en su uso ético (no discriminación, perspectiva de género, protección a la salud, medio ambiente y niñez, entre otros). En 2025 organizó un parlamento abierto en materia de IA, mostrando apertura hacia la industria digital. Es cercano a otros expriistas como Alejandro Murat Hinojosa y Jorge Carlos Ramírez Marín. Cuenta con apertura al diálogo con el sector privado.'
+  },
+  {
+    id: 8, tier: 1,
+    nombre: 'Sen. Waldo Fernández González',
+    camara: 'Senado', partido: 'PVEM', estado: 'Nuevo León',
+    rol: 'Presidente de la Comisión de Seguimiento a la Implementación y Revisión del T-MEC',
+    stance: 'Aliado',
+    influencia: 'Alto',
+    contacto: 'waldo.fernandez@senado.gob.mx',
+    sil: 'https://sil.gobernacion.gob.mx/Librerias/pp_PerfilLegislador.php?SID=&Referencia=9229058',
+    suplente: 'Carlos Humberto Suárez Flores',
+    signales: ['Preside Comisión T-MEC', 'Vínculo previo activo', 'Busca gubernatura NL 2027'],
+    iniciativas: false,
+    vinculoPrevio: true,
+    valoracion: 'Como presidente de la Comisión puede emitir posturas de relevancia para la aprobación de proyectos de interés. Su postura se encuentra alineada con los intereses del partido mayoritario, dado su apoyo a este grupo parlamentario puede ser un buen interlocutor. En 2024 y 2025 tuvo reuniones y comunicación constante con el equipo del cliente. Actualmente se cuenta con el contacto de su equipo. Su apertura al diálogo es positiva, sin embargo, cabe destacar que durante abril confirmó que se registrará el próximo 22 de junio en el proceso interno de Morena para la definición de candidaturas rumbo a 2027 para buscar la gubernatura de Nuevo León, por lo cual es probable que pida licencia de sus labores legislativas.'
+  },
+  {
+    id: 9, tier: 1,
+    nombre: 'Sen. Alejandro Murat Hinojosa',
+    camara: 'Senado', partido: 'Morena', estado: 'Oaxaca',
+    rol: 'Integrante de la Comisión de Seguimiento a la Implementación y Revisión del T-MEC',
+    stance: 'Aliado',
+    influencia: 'Alto',
+    contacto: 'alejandro.murat@senado.gob.mx',
+    sil: 'https://sil.gobernacion.gob.mx/Librerias/pp_PerfilLegislador.php?Referencia=9229294',
+    suplente: 'Armando Contreras Castillo',
+    signales: ['Ex gobernador Oaxaca', 'Puente expriista-Morena', 'Apertura IP'],
+    iniciativas: false,
+    vinculoPrevio: false,
+    valoracion: 'Se ha posicionado como un actor moderado de Morena, con capacidad de diálogo con el Ejecutivo. Tiene apertura a dialogar con el sector privado. Como ex gobernador de Oaxaca mantiene un importante liderazgo en el Estado. Ha manifestado interés en la regulación de activos virtuales, sin embargo, no tiene una postura explícita sobre temas transversales de la agenda digital. Por otro lado, apoyó abiertamente las reformas a la Ley en materia de Desaparición Forzada y a la Ley General de Población. Actualmente se ha posicionado a favor del bloque de Morena-PT-PVEM para las próximas elecciones, en específico para el estado de Nuevo León, manifestando apoyo a Waldo Fernández. Pertenece a un bloque expriista que logró cercanía con Morena, lo cual lo coloca como un puente entre el partido y otros grupos parlamentarios.'
+  },
+  {
+    id: 10, tier: 1,
+    nombre: 'Sen. Susana Harp Iturribarría',
+    camara: 'Senado', partido: 'Morena', estado: 'Oaxaca',
+    rol: 'Presidenta de la Comisión de Ciencia, Tecnología e Innovación',
+    stance: 'Opositor',
+    influencia: 'Alto',
+    contacto: 'susanaharp@senado.gob.mx',
+    sil: 'https://sil.gobernacion.gob.mx/Librerias/pp_PerfilLegislador.php?SID=&Referencia=9229264',
+    suplente: 'Mónica Fernández Balboa',
+    signales: ['Preside Comisión CTI Senado', 'Ala pura Morena', 'Derechos de autor'],
+    iniciativas: false,
+    vinculoPrevio: true,
+    valoracion: 'Como Presidenta de la Comisión e integrante del Grupo Parlamentario de Morena tiene influencia directa en los asuntos que se dictaminan en materia de ciencia, tecnología e innovación, entre los que pueden recaer la inteligencia artificial. Suscribió una iniciativa para facultar al Congreso a legislar en materia de ciberseguridad y participa de manera activa y constante en eventos relacionados con la Inteligencia Artificial, como el México Digital Summit, presentaciones de estudios y conversatorios organizados por la comisión de IA. Su postura se ubica en una línea de regulación garantista de derechos humanos y protección a la libertad de expresión. Por otro lado, pertenece a un ala más "pura" de Morena que no suele ver de manera positiva al sector privado. Asimismo, tiene mucha cercanía con grupos de artistas que impulsan la remuneración compensatoria y respaldaron las recientes reformas en materia de derecho de autor. Anteriormente buscó la candidatura a la gubernatura de Oaxaca, por lo que no se descarta que en 2027 participe en la contienda electoral.'
+  },
+  {
+    id: 11, tier: 1,
+    nombre: 'Sen. Higinio Martínez Miranda',
+    camara: 'Senado', partido: 'Morena', estado: 'Estado de México',
+    rol: 'Integrante de la Comisión de Gobernación',
+    stance: 'Neutral',
+    influencia: 'Alto',
+    contacto: 'higinio.martinez@senado.gob.mx',
+    sil: 'https://sil.gobernacion.gob.mx/Librerias/pp_PerfilLegislador.php?SID=&Referencia=9228972',
+    suplente: 'Sandra Luz Falcón Venegas',
+    signales: ['Vicecoord. Morena Senado', 'Base Edomex'],
+    iniciativas: false,
+    vinculoPrevio: false,
+    valoracion: 'Desde su rol como Vicecoordinador del Grupo Parlamentario de Morena cuenta con capacidad para incidir en la agenda del Senado. Históricamente ha sido un perfil de los movimientos de izquierda, con una amplia base política en el Estado de México. Ha buscado la gubernatura del Estado, pero al ganar Delfina Gómez ocupó brevemente el cargo de jefe de gabinete, para postularse nuevamente al Senado en 2024. En el marco de las próximas elecciones se vislumbra como un importante actor político-electoral en la entidad y cuenta con el respaldo de presidencias municipales de la entidad y diputaciones federales, como Angélica Álvarez Nemer (aliada del sector privado).'
+  },
+  {
+    id: 12, tier: 1,
+    nombre: 'Sen. Jorge Carlos Ramírez Marín',
+    camara: 'Senado', partido: 'PVEM', estado: 'Yucatán',
+    rol: 'Vicepresidente de la Mesa Directiva del Senado',
+    stance: 'Aliado',
+    influencia: 'Medio-alto',
+    contacto: 'jcarlos.ramirez@senado.gob.mx',
+    sil: 'https://sil.gobernacion.gob.mx/Librerias/pp_PerfilLegislador.php?Referencia=9229182',
+    suplente: 'Jorge Armando García',
+    signales: ['Vicepresidente Mesa Directiva', 'Vínculo previo 2023-2025', 'Apertura IP'],
+    iniciativas: false,
+    vinculoPrevio: true,
+    valoracion: 'Como Vicepresidente de la Mesa Directiva del Senado puede incidir en los asuntos que se discuten durante la sesión. Anteriormente presidió la Comisión de Ciencia, Tecnología e Innovación y realizó diversos conversatorios en materia de ciberseguridad e inteligencia artificial. Dentro de su postura ha manifestado que se deben evitar obstáculos normativos al desarrollo tecnológico y consultar a la industria experta en los temas de tecnología. También mostró interés en temas de protección a la infancia, al firmar el "Pacto Nacional por la Ciberseguridad de las Niñas, Niños y Adolescentes". En 2023 participó en la toma la protesta del Consejo directivo de la Asociación de Internet MX, calificándolo como un "aliado de la industria digital". En suma, mantiene una postura abierta a dialogar con el sector privado. Además, entre 2023 y 2025 sostuvo reuniones con el equipo del cliente, mostrando apertura a conocer los proyectos y la visión de la empresa en estos temas. Mantiene buena relación con el Senador Rolando Zapata, presidente de la Comisión de IA.'
+  },
+
+  // ============ TIER 2 ============
+  {
+    id: 13, tier: 2, owner: '',
+    nombre: 'Dip. Yeidckol Polevnsky Gurwitz',
+    camara: 'Diputados', partido: 'PT', estado: 'Estado de México',
+    rol: 'Diputada federal por el PT',
+    stance: 'Neutral',
+    signales: ['Ex dirigencia'],
+    iniciativas: false,
+    vinculoPrevio: false,
+    evaluacion: {
+      medios: 'Alta histórica.',
+      posicionamiento: 'Sin agenda específica en IA.',
+      iniciativas: 'No en la materia.',
+      grupo: 'PT — aliado estratégico del oficialismo; con trayectoria en dirigencia nacional de Morena.',
+      aperturaPrivada: 'Moderada. Conexiones empresariales previas.'
+    },
+    estrategia: 'Influencer sectorial. Puede sumar peso político a la discusión en plenaria.'
+  },
+  {
+    id: 14, tier: 2, owner: '',
+    nombre: 'Dip. Luis Alfonso Silva Romo',
+    camara: 'Diputados', partido: 'PVEM', estado: 'CDMX',
+    rol: 'Diputado federal por el PVEM',
+    stance: 'Neutral',
+    signales: ['Perfil técnico'],
+    iniciativas: false,
+    vinculoPrevio: false,
+    evaluacion: {
+      medios: 'Media.',
+      posicionamiento: 'Sin posición pública en IA.',
+      iniciativas: 'No.',
+      grupo: 'PVEM — aliado estratégico del oficialismo.',
+      aperturaPrivada: 'Abierto.'
+    },
+    estrategia: 'Construcción de relación técnica. Potencial aliado en subcomisiones.'
+  },
+  {
+    id: 15, tier: 2, owner: '',
+    nombre: 'Dip. Luis Orlando Quiroga Treviño',
+    camara: 'Diputados', partido: 'PVEM', estado: 'Coahuila',
+    rol: 'Diputado federal por el PVEM',
+    stance: 'Neutral',
+    signales: ['PVEM'],
+    iniciativas: false,
+    vinculoPrevio: false,
+    evaluacion: {
+      medios: 'Media.',
+      posicionamiento: 'PVEM — partido que preside la Comisión de Ciencia en Diputados y empuja activamente la regulación de IA.',
+      iniciativas: 'No propia en IA.',
+      grupo: 'PVEM — aliado estratégico del oficialismo.',
+      aperturaPrivada: 'Abierto al diálogo con sector privado.'
+    },
+    estrategia: 'Puente interno con Grupo Parlamentario del PVEM para sumar a la agenda liderada por Eruviel Ávila.'
+  },
+  {
+    id: 16, tier: 2, owner: '',
+    nombre: 'Dip. Eugenio Segura Vázquez',
+    camara: 'Diputados', partido: 'Morena', estado: 'Jalisco',
+    rol: 'Diputado federal por Morena',
+    stance: 'Neutral',
+    signales: ['Perfil técnico'],
+    iniciativas: false,
+    vinculoPrevio: false,
+    evaluacion: {
+      medios: 'Baja-media.',
+      posicionamiento: 'Sin posicionamiento en IA.',
+      iniciativas: 'No.',
+      grupo: 'Morena.',
+      aperturaPrivada: 'Moderada.'
+    },
+    estrategia: 'Perfil a desarrollar. Abordar desde agenda de innovación en Jalisco.'
+  },
+  {
+    id: 17, tier: 2, owner: '',
+    nombre: 'Dip. Beatriz Mojica Morga',
+    camara: 'Diputados', partido: 'Morena', estado: 'Guerrero',
+    rol: 'Diputada federal por Morena',
+    stance: 'Neutral',
+    signales: ['Derechos sociales'],
+    iniciativas: false,
+    vinculoPrevio: false,
+    evaluacion: {
+      medios: 'Media.',
+      posicionamiento: 'Perfil de género y derechos humanos — ángulo IA: sesgos algorítmicos.',
+      iniciativas: 'No en IA.',
+      grupo: 'Morena.',
+      aperturaPrivada: 'Moderada.'
+    },
+    estrategia: 'Aproximación desde sesgos algorítmicos y ética de datos. Aliada potencial en subcomisión de igualdad de género.'
+  },
+  {
+    id: 18, tier: 2, owner: '',
+    nombre: 'Dip. Miguel Ángel Salim Alle',
+    camara: 'Diputados', partido: 'PAN', estado: 'Guanajuato',
+    rol: 'Diputado federal por el PAN',
+    stance: 'Neutral',
+    signales: ['PAN', 'Perfil empresarial'],
+    iniciativas: false,
+    vinculoPrevio: false,
+    evaluacion: {
+      medios: 'Media.',
+      posicionamiento: 'Perfil empresarial PAN.',
+      iniciativas: 'No en IA.',
+      grupo: 'PAN.',
+      aperturaPrivada: 'Alta.'
+    },
+    estrategia: 'Aliado potencial en oposición desde visión empresarial. Complementar con Elías Lixa.'
+  },
+  {
+    id: 19, tier: 2, owner: '',
+    nombre: 'Dip. Ricardo Valdés Peña',
+    camara: 'Diputados', partido: 'Morena', estado: 'CDMX',
+    rol: 'Diputado federal por Morena (CDMX)',
+    stance: 'Neutral',
+    signales: ['Perfil técnico'],
+    iniciativas: false,
+    vinculoPrevio: false,
+    evaluacion: {
+      medios: 'Baja.',
+      posicionamiento: 'Sin posicionamiento público en IA.',
+      iniciativas: 'No.',
+      grupo: 'Morena.',
+      aperturaPrivada: 'Moderada.'
+    },
+    estrategia: 'Monitoreo activo y construcción de relación técnica.'
+  },
+  {
+    id: 20, tier: 2, owner: '',
+    nombre: 'Sen. Lorenia Iveth Valles Sampedro',
+    camara: 'Senado', partido: 'Morena', estado: 'Sonora',
+    rol: 'Senadora por Morena',
+    stance: 'Neutral',
+    signales: ['Ambiental'],
+    iniciativas: false,
+    vinculoPrevio: false,
+    evaluacion: {
+      medios: 'Media.',
+      posicionamiento: 'Perfil ambiental — ángulo IA: consumo energético de centros de datos.',
+      iniciativas: 'No en IA.',
+      grupo: 'Morena.',
+      aperturaPrivada: 'Moderada.'
+    },
+    estrategia: 'Abordar desde sostenibilidad de data centers y energía renovable para IA.'
+  },
+  {
+    id: 21, tier: 2, owner: '',
+    nombre: 'Sen. Saúl Monreal Ávila',
+    camara: 'Senado', partido: 'Morena', estado: 'Zacatecas',
+    rol: 'Senador por Morena (hermano de Ricardo Monreal)',
+    stance: 'Aliado',
+    signales: ['Vínculo familiar Monreal'],
+    iniciativas: false,
+    vinculoPrevio: false,
+    evaluacion: {
+      medios: 'Media.',
+      posicionamiento: 'Alineado con agenda de Ricardo Monreal.',
+      iniciativas: 'No propia.',
+      grupo: 'Morena — clan Monreal.',
+      aperturaPrivada: 'Moderada.'
+    },
+    estrategia: 'Refuerzo del canal Monreal. Aliado indirecto a través de red familiar/política.'
+  },
+  {
+    id: 22, tier: 2, owner: '',
+    nombre: 'Sen. Lucía Trasviña Waldenrath',
+    camara: 'Senado', partido: 'Morena', estado: 'Baja California Sur',
+    rol: 'Senadora por Morena',
+    stance: 'Neutral',
+    signales: ['Perfil territorial'],
+    iniciativas: false,
+    vinculoPrevio: false,
+    evaluacion: {
+      medios: 'Media.',
+      posicionamiento: 'Sin posicionamiento específico en IA.',
+      iniciativas: 'No.',
+      grupo: 'Morena.',
+      aperturaPrivada: 'Moderada.'
+    },
+    estrategia: 'Monitoreo. Aproximación regional.'
+  },
+
+  // ============ TIER 3 ============
+  {
+    id: 23, tier: 3, owner: '',
+    nombre: 'Dip. Elías Lixa Abimerhi',
+    camara: 'Diputados', partido: 'PAN', estado: 'CDMX',
+    rol: 'Coordinador del Grupo Parlamentario del PAN en Diputados',
+    stance: 'Neutral',
+    signales: ['Coord. PAN', 'Alta exposición'],
+    iniciativas: false,
+    vinculoPrevio: false,
+    evaluacion: {
+      medios: 'Alta.',
+      posicionamiento: 'El PAN ha anunciado en su agenda la regulación responsable de IA.',
+      iniciativas: 'No propia aún.',
+      grupo: 'PAN — coordinador.',
+      aperturaPrivada: 'Alta tradicional.'
+    },
+    estrategia: 'Canal institucional de oposición. Debe escalar a Tier 2 si avanza la iniciativa.'
+  },
+  {
+    id: 24, tier: 3, owner: '',
+    nombre: 'Sen. Cecilia Guadiana Mandujano',
+    camara: 'Senado', partido: 'Morena', estado: 'Coahuila',
+    rol: 'Senadora por Morena',
+    stance: 'Neutral',
+    signales: ['Perfil regional'],
+    iniciativas: false,
+    vinculoPrevio: false,
+    evaluacion: {
+      medios: 'Baja-media.',
+      posicionamiento: 'Sin posicionamiento en IA.',
+      iniciativas: 'No.',
+      grupo: 'Morena.',
+      aperturaPrivada: 'Moderada.'
+    },
+    estrategia: 'Monitoreo.'
+  },
+  {
+    id: 25, tier: 3, owner: '',
+    nombre: 'Sen. Ricardo Sheffield Padilla',
+    camara: 'Senado', partido: 'Morena', estado: 'Guanajuato',
+    rol: 'Senador por Morena (ex PROFECO)',
+    stance: 'Neutral',
+    signales: ['Consumidor', 'Ex PROFECO'],
+    iniciativas: false,
+    vinculoPrevio: false,
+    evaluacion: {
+      medios: 'Alta.',
+      posicionamiento: 'Ángulo protección al consumidor digital — IA y derechos de usuarios.',
+      iniciativas: 'No en IA.',
+      grupo: 'Morena.',
+      aperturaPrivada: 'Compleja. Perfil regulador duro.'
+    },
+    estrategia: 'Actor con riesgo. Aproximación con posicionamiento sobre transparencia algorítmica para consumidores.'
+  },
+  {
+    id: 26, tier: 3, owner: '',
+    nombre: 'Sen. Luis Donaldo Colosio Riojas',
+    camara: 'Senado', partido: 'MC', estado: 'Nuevo León',
+    rol: 'Senador por Movimiento Ciudadano',
+    stance: 'Neutral',
+    signales: ['Alta exposición', 'Perfil joven'],
+    iniciativas: false,
+    vinculoPrevio: false,
+    evaluacion: {
+      medios: 'Muy alta. Figura nacional.',
+      posicionamiento: 'Perfil innovador y tecnológico. Frecuentemente aborda temas digitales.',
+      iniciativas: 'Sin iniciativa específica en IA hasta la fecha.',
+      grupo: 'MC — oposición con perfil propio.',
+      aperturaPrivada: 'Alta.'
+    },
+    estrategia: 'Aliado potencial con crecimiento. Nuevo León como hub tecnológico — vínculo natural con agenda del sector. Posible escalamiento a Tier 2.'
+  },
+  {
+    id: 27, tier: 3, owner: '',
+    nombre: 'Sen. Rolando Zapata Bello',
+    camara: 'Senado', partido: 'PRI', estado: 'Yucatán',
+    rol: 'Senador por el PRI (ex gobernador de Yucatán)',
+    stance: 'Neutral',
+    signales: ['Ex gobernador'],
+    iniciativas: false,
+    vinculoPrevio: false,
+    evaluacion: {
+      medios: 'Media.',
+      posicionamiento: 'Sin posicionamiento en IA.',
+      iniciativas: 'No.',
+      grupo: 'PRI.',
+      aperturaPrivada: 'Alta.'
+    },
+    estrategia: 'Complemento a Ramírez Marín en Grupo Parlamentario del PRI.'
+  },
+  {
+    id: 28, tier: 3, owner: '',
+    nombre: 'Sen. Agustín Dorantes Lámbarri',
+    camara: 'Senado', partido: 'PAN', estado: 'Querétaro',
+    rol: 'Senador por el PAN',
+    stance: 'Neutral',
+    signales: ['PAN', 'Querétaro'],
+    iniciativas: false,
+    vinculoPrevio: false,
+    evaluacion: {
+      medios: 'Media.',
+      posicionamiento: 'Querétaro es polo tecnológico — contexto favorable.',
+      iniciativas: 'No en IA.',
+      grupo: 'PAN.',
+      aperturaPrivada: 'Alta.'
+    },
+    estrategia: 'Aproximación desde ecosistema tecnológico Querétaro. Coordinar con PAN.'
+  },
+  {
+    id: 29, tier: 3, owner: '',
+    nombre: 'Sen. Juanita Guerra Mena',
+    camara: 'Senado', partido: 'PVEM', estado: 'Morelos',
+    rol: 'Senadora por el PVEM',
+    stance: 'Neutral',
+    signales: ['Seguridad'],
+    iniciativas: false,
+    vinculoPrevio: false,
+    evaluacion: {
+      medios: 'Media.',
+      posicionamiento: 'Perfil de seguridad — ángulo IA aplicada a seguridad pública.',
+      iniciativas: 'No.',
+      grupo: 'PVEM — aliado estratégico del oficialismo.',
+      aperturaPrivada: 'Moderada.'
+    },
+    estrategia: 'Aproximación desde la propuesta de Eruviel Ávila sobre IA en seguridad.'
+  },
+  {
+    id: 30, tier: 3, owner: '',
+    nombre: 'Dip. Ivideliza Reyes Hernández',
+    camara: 'Diputados', partido: 'PAN', estado: 'Nayarit',
+    rol: 'Diputada federal por el PAN',
+    stance: 'Neutral',
+    signales: ['PAN'],
+    iniciativas: false,
+    vinculoPrevio: false,
+    evaluacion: {
+      medios: 'Baja.',
+      posicionamiento: 'Sin posicionamiento en IA.',
+      iniciativas: 'No.',
+      grupo: 'PAN — oposición.',
+      aperturaPrivada: 'Alta tradicional del PAN.'
+    },
+    estrategia: 'Monitoreo. Canal complementario en Grupo Parlamentario del PAN.'
+  },
+  {
+    id: 31, tier: 3, owner: '',
+    nombre: 'Dip. Sebastián Ebrard Lestrade',
+    camara: 'Diputados', partido: 'Morena', estado: 'CDMX',
+    rol: 'Diputado federal por Morena (hijo de Marcelo Ebrard)',
+    stance: 'Aliado',
+    signales: ['Cercanía Ebrard', 'Economía'],
+    iniciativas: false,
+    vinculoPrevio: false,
+    evaluacion: {
+      medios: 'Media-alta.',
+      posicionamiento: 'Agenda económica y tecnológica afín a la Secretaría de Economía.',
+      iniciativas: 'No propia.',
+      grupo: 'Morena — ala Ebrard.',
+      aperturaPrivada: 'Alta.'
+    },
+    estrategia: 'Puente con Secretaría de Economía (Ebrard). Relevante para T-MEC y semiconductores.'
+  },
+  {
+    id: 32, tier: 3, owner: '',
+    nombre: 'Dip. Julio Javier Scherer Pareyón',
+    camara: 'Diputados', partido: 'PVEM', estado: 'CDMX',
+    rol: 'Diputado federal por el PVEM (hijo de Julio Scherer Ibarra)',
+    stance: 'Neutral',
+    signales: ['Perfil jurídico'],
+    iniciativas: false,
+    vinculoPrevio: false,
+    evaluacion: {
+      medios: 'Media.',
+      posicionamiento: 'Perfil jurídico — ángulo IA y sistema de justicia.',
+      iniciativas: 'No en IA.',
+      grupo: 'PVEM — aliado estratégico del oficialismo.',
+      aperturaPrivada: 'Moderada.'
+    },
+    estrategia: 'Monitoreo. Aliado potencial en aspectos jurídicos de la regulación. Canal complementario en PVEM.'
+  },
+  {
+    id: 33, tier: 3, owner: '',
+    nombre: 'Dip. Miguel Monraz Ibarra',
+    camara: 'Diputados', partido: 'PAN', estado: 'Jalisco',
+    rol: 'Diputado federal por el PAN',
+    stance: 'Neutral',
+    signales: ['PAN', 'Jalisco'],
+    iniciativas: false,
+    vinculoPrevio: false,
+    evaluacion: {
+      medios: 'Media.',
+      posicionamiento: 'Jalisco — ecosistema tech relevante.',
+      iniciativas: 'No en IA.',
+      grupo: 'PAN.',
+      aperturaPrivada: 'Alta.'
+    },
+    estrategia: 'Aproximación desde ecosistema tecnológico Jalisco.'
+  },
+  {
+    id: 34, tier: 3, owner: '',
+    nombre: 'Dip. Claudia Ruiz Massieu Salinas',
+    camara: 'Diputados', partido: 'MC', estado: 'CDMX',
+    rol: 'Diputada federal por Movimiento Ciudadano (ex canciller)',
+    stance: 'Neutral',
+    signales: ['Ex canciller', 'Relaciones internacionales'],
+    iniciativas: false,
+    vinculoPrevio: false,
+    evaluacion: {
+      medios: 'Alta.',
+      posicionamiento: 'Perfil internacionalista — ángulo IA en contexto de regulación global.',
+      iniciativas: 'No en IA.',
+      grupo: 'MC — oposición con perfil propio.',
+      aperturaPrivada: 'Alta.'
+    },
+    estrategia: 'Aproximación desde benchmarks internacionales (UE, US) en regulación de IA.'
+  },
+  {
+    id: 35, tier: 3, owner: '',
+    nombre: 'Dip. Rubén Moreira Valdez',
+    camara: 'Diputados', partido: 'PRI', estado: 'Coahuila',
+    rol: 'Coordinador del Grupo Parlamentario del PRI',
+    stance: 'Neutral',
+    signales: ['Coord. PRI', 'Agenda IA'],
+    iniciativas: false,
+    vinculoPrevio: false,
+    evaluacion: {
+      medios: 'Alta.',
+      posicionamiento: 'Ha anunciado que regulación responsable de IA es prioridad de la agenda PRI para el segundo periodo de sesiones.',
+      iniciativas: 'No propia aún.',
+      grupo: 'PRI — coordinador.',
+      aperturaPrivada: 'Alta.'
+    },
+    estrategia: 'Canal institucional principal con Grupo Parlamentario del PRI. Coordinar con Ramírez Marín.'
+  },
+  {
+    id: 36, tier: 3, owner: '',
+    nombre: 'Sen. Carolina Viggiano Austria',
+    camara: 'Senado', partido: 'PRI', estado: 'Hidalgo',
+    rol: 'Senadora por el PRI',
+    stance: 'Neutral',
+    signales: ['PRI'],
+    iniciativas: false,
+    vinculoPrevio: false,
+    evaluacion: {
+      medios: 'Media.',
+      posicionamiento: 'Sin posicionamiento específico en IA.',
+      iniciativas: 'No.',
+      grupo: 'PRI.',
+      aperturaPrivada: 'Alta.'
+    },
+    estrategia: 'Complemento en Grupo Parlamentario del PRI en Senado.'
+  },
+  {
+    id: 37, tier: 3, owner: '',
+    nombre: 'Dip. Federico Döring Casar',
+    camara: 'Diputados', partido: 'PAN', estado: 'CDMX',
+    rol: 'Diputado federal por el PAN',
+    stance: 'Aliado',
+    signales: ['PAN', 'Crítico'],
+    iniciativas: false,
+    vinculoPrevio: false,
+    evaluacion: {
+      medios: 'Alta.',
+      posicionamiento: 'Voz crítica del gobierno. Perfil combativo.',
+      iniciativas: 'No en IA.',
+      grupo: 'PAN.',
+      aperturaPrivada: 'Alta tradicional, pero postura crítica hacia iniciativas oficialistas.'
+    },
+    estrategia: 'Monitoreo activo. Posible oposición a iniciativas de Morena en IA. Aproximación cautelosa con énfasis en libertades y sector privado.'
+  },
+  {
+    id: 38, tier: 3, owner: '',
+    nombre: 'Dip. Gibrán Ramírez Reyes',
+    camara: 'Diputados', partido: 'MC', estado: '—',
+    rol: 'Diputado federal por Movimiento Ciudadano',
+    stance: 'Neutral',
+    signales: ['MC', 'Analista'],
+    iniciativas: false,
+    vinculoPrevio: false,
+    evaluacion: {
+      medios: 'Alta. Analista político.',
+      posicionamiento: 'Perfil intelectual. Potencial ángulo crítico sobre IA y democracia.',
+      iniciativas: 'No en IA.',
+      grupo: 'MC — oposición con perfil propio.',
+      aperturaPrivada: 'Baja-moderada. Perfil crítico de corporaciones tecnológicas.'
+    },
+    estrategia: 'Monitoreo. Riesgo de posiciones críticas sobre big tech. Aproximación desde ángulo de soberanía digital.'
+  }
+];
+
+// ==================== RENDER ====================
+const partyClass = (p) => {
+  const map = { Morena: 'morena', PVEM: 'pvem', PRI: 'pri', PAN: 'pan', MC: 'mc', PT: 'pt' };
+  return `party-${map[p] || 'gray'}`;
+};
+const stanceClass = (s) => `stance-${s.toLowerCase()}`;
+
+function renderCards() {
+  const q = document.getElementById('search').value.toLowerCase();
+  const tf = document.getElementById('filter-tier').value;
+  const pf = document.getElementById('filter-party').value;
+  const cf = document.getElementById('filter-camara').value;
+  const sf = document.getElementById('filter-stance').value;
+
+  const filtered = actores.filter(a => {
+    if (q && !(a.nombre.toLowerCase().includes(q) || a.estado.toLowerCase().includes(q) || a.rol.toLowerCase().includes(q))) return false;
+    if (tf && String(a.tier) !== tf) return false;
+    if (pf && a.partido !== pf) return false;
+    if (cf && a.camara !== cf) return false;
+    if (sf && a.stance !== sf) return false;
+    return true;
+  });
+
+  document.getElementById('counter').textContent = `${filtered.length} de 38 actores`;
+
+  const tiers = [1, 2, 3];
+  const tierInfo = {
+    1: { title: 'Tier 1 — Alta prioridad', desc: 'Actores con capacidad política de decisión y proyectos legislativos en la materia' },
+    2: { title: 'Tier 2 — Prioridad media', desc: 'Actores con capacidad política limitada pero con influencia en el grupo parlamentario y/o comisiones legislativas' },
+    3: { title: 'Tier 3 — Menor influencia', desc: 'Actores con menor influencia pero capacidad técnica y entendimiento del tema. Posicionamiento mediático' }
+  };
+
+  const container = document.getElementById('tiers-container');
+  container.innerHTML = '';
+
+  tiers.forEach(t => {
+    const tierActors = filtered.filter(a => a.tier === t);
+    if (tierActors.length === 0) return;
+
+    const section = document.createElement('div');
+    section.className = `tier-section tier-${t}`;
+    section.id = `tier-${t}`;
+    section.innerHTML = `
+      <div class="tier-header">
+        <span class="tier-badge">Tier ${t}</span>
+        <span class="tier-title">${tierInfo[t].title}</span>
+        <span class="tier-desc">${tierActors.length} ${tierActors.length === 1 ? 'actor' : 'actores'} · ${tierInfo[t].desc}</span>
+      </div>
+      <div class="cards-grid">
+        ${tierActors.map(a => cardHtml(a)).join('')}
+      </div>
+    `;
+    container.appendChild(section);
+  });
+
+  // Bind clicks
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => openModal(parseInt(card.dataset.id)));
+  });
+}
+
+function cardHtml(a) {
+  // Filtrar señales de vínculo previo para que no se dupliquen con la pill destacada
+  const signalesFiltradas = a.signales.filter(s => !s.toLowerCase().includes('vínculo'));
+  const signalsHtml = signalesFiltradas.map(s => {
+    return `<span class="signal active">${s}</span>`;
+  }).join('');
+  return `
+    <div class="card" data-id="${a.id}">
+      <div class="card-top">
+        <div style="flex:1; min-width: 0;">
+          <div class="card-name">${a.nombre}</div>
+          <div class="card-meta">
+            <span class="party-chip ${partyClass(a.partido)}">${a.partido}</span>
+            ${a.camara} · ${a.estado}
+          </div>
+        </div>
+        <span class="stance-badge ${stanceClass(a.stance)}">${a.stance === 'Aliado' ? 'Potencial aliado' : a.stance === 'Opositor' ? 'Potencial opositor' : a.stance}</span>
+      </div>
+      <div class="card-role">${a.rol}</div>
+      ${a.vinculoPrevio ? `<div class="vinculo-pill"><span class="vinculo-icon">⚡</span>Vinculación previa</div>` : ''}
+      ${signalesFiltradas.length ? `<div class="card-signals">${signalsHtml}</div>` : ''}
+    </div>
+  `;
+}
+
+function openModal(id) {
+  const a = actores.find(x => x.id === id);
+  if (!a) return;
+
+  document.getElementById('modal-name').textContent = a.nombre;
+  document.getElementById('modal-meta').innerHTML = `
+    <span class="party-chip ${partyClass(a.partido)}">${a.partido}</span>
+    ${a.camara} · ${a.estado} ·
+    <span class="stance-badge ${stanceClass(a.stance)}" style="margin-left: 6px;">${a.stance === 'Aliado' ? 'Potencial aliado' : a.stance === 'Opositor' ? 'Potencial opositor' : a.stance}</span>
+  `;
+
+  const body = document.getElementById('modal-body');
+
+  // Formato Tier 1 (datos completos del Excel)
+  if (a.valoracion) {
+    body.innerHTML = `
+      <div class="modal-section">
+        <h4>Cargo</h4>
+        <p>${a.rol}</p>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-label">Nivel de influencia</div>
+          <div class="info-value influence-${(a.influencia || '').toLowerCase().replace(/[^a-z]/g, '')}">${a.influencia || '—'}</div>
+        </div>
+        <div class="info-card">
+          <div class="info-label">Postura</div>
+          <div class="info-value">${a.stance === 'Aliado' ? 'Potencial aliado' : a.stance === 'Opositor' ? 'Potencial opositor' : a.stance}</div>
+        </div>
+        <div class="info-card">
+          <div class="info-label">Contacto</div>
+          <div class="info-value"><a href="mailto:${a.contacto}" class="info-link">${a.contacto}</a></div>
+        </div>
+        <div class="info-card">
+          <div class="info-label">Suplente</div>
+          <div class="info-value">${a.suplente || '—'}</div>
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <h4>Valoración estratégica</h4>
+        <p class="valoracion-text">${a.valoracion}</p>
+      </div>
+
+      ${a.vinculoPrevio ? `
+      <div class="modal-section">
+        <h4>⚡ Vinculación previa</h4>
+        <p style="color: #633806; background: #FAEEDA; padding: 10px 14px; border-radius: 6px; border-left: 3px solid #BA7517;">Existe una relación previa documentada. Priorizar escalamiento del contacto.</p>
+      </div>` : ''}
+
+      <div class="modal-section">
+        <h4>Recursos</h4>
+        <a href="${a.sil}" target="_blank" class="pdf-link">
+          <svg class="pdf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+          Perfil en SIL (Secretaría de Gobernación)
+        </a>
+      </div>
+    `;
+  } else {
+    // Formato Tier 2/3 (estructura antigua)
+    body.innerHTML = `
+      <div class="modal-section">
+        <h4>Rol actual</h4>
+        <p>${a.rol}</p>
+      </div>
+
+      <div class="modal-section">
+        <h4>Evaluación por criterios</h4>
+        <div class="eval-grid">
+          <div class="eval-item"><strong>Exposición mediática</strong>${a.evaluacion.medios}</div>
+          <div class="eval-item"><strong>Posicionamientos públicos sobre IA y TI</strong>${a.evaluacion.posicionamiento}</div>
+          <div class="eval-item"><strong>Iniciativas legislativas</strong>${a.evaluacion.iniciativas}</div>
+          <div class="eval-item"><strong>Grupo político</strong>${a.evaluacion.grupo}</div>
+          <div class="eval-item" style="grid-column: 1 / -1;"><strong>Apertura a la IP</strong>${a.evaluacion.aperturaPrivada}</div>
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <h4>Estrategia de vinculación recomendada</h4>
+        <div class="strategy-box">${a.estrategia}</div>
+      </div>
+
+      ${a.vinculoPrevio ? `
+      <div class="modal-section">
+        <h4>⚡ Vinculación previa</h4>
+        <p style="color: #633806; background: #FAEEDA; padding: 10px 14px; border-radius: 6px; border-left: 3px solid #BA7517;">Existe una relación previa documentada. Priorizar escalamiento del contacto.</p>
+      </div>` : ''}
+    `;
+  }
+
+  document.getElementById('modal').classList.add('active');
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('active');
+}
+
+// Modal de Estrategia de Vinculación
+function openStrategyModal() {
+  document.getElementById('strategy-modal').classList.add('active');
+}
+function closeStrategyModal() {
+  document.getElementById('strategy-modal').classList.remove('active');
+}
+document.getElementById('strategy-modal').addEventListener('click', (e) => {
+  if (e.target.id === 'strategy-modal') closeStrategyModal();
+});
+
+// Modal de Carta Sugerida
+function openPdfModal() {
+  document.getElementById('pdf-modal').classList.add('active');
+}
+function closePdfModal() {
+  document.getElementById('pdf-modal').classList.remove('active');
+}
+document.getElementById('pdf-modal').addEventListener('click', (e) => {
+  if (e.target.id === 'pdf-modal') closePdfModal();
+});
+
+// Close modal on overlay click
+document.getElementById('modal').addEventListener('click', (e) => {
+  if (e.target.id === 'modal') closeModal();
+});
+document.addEventListener('keydown', (e) => { 
+  if (e.key === 'Escape') {
+    closeModal();
+    closeStrategyModal();
+    closePdfModal();
+  }
+});
+
+// Scroll a tier específico
+function scrollToTier(t) {
+  // Si hay filtros activos que oculten el tier, los limpiamos
+  const currentTierFilter = document.getElementById('filter-tier').value;
+  if (currentTierFilter && currentTierFilter !== String(t)) {
+    document.getElementById('filter-tier').value = '';
+    renderCards();
+  }
+  setTimeout(() => {
+    const el = document.getElementById(`tier-${t}`);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, 50);
+}
+
+// Bindings
+['search', 'filter-tier', 'filter-party', 'filter-camara', 'filter-stance'].forEach(id => {
+  document.getElementById(id).addEventListener('input', renderCards);
+  document.getElementById(id).addEventListener('change', renderCards);
+});
+
+// Initial render
+renderCards();
+</script>
+
+
+</body></html>
